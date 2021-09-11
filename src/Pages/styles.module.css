@@ -1,0 +1,38 @@
+.title{
+  margin-bottom: 20px;
+}
+
+.inputBox{
+  /* margin-bottom: 10px; */
+}
+
+.form{
+    margin-bottom:10px  
+}
+
+.BoxInput{
+  text-align: center;
+  margin: 40px;
+  padding: 20px;
+
+}
+
+.btn{
+  height: 30px;
+  width: 80px;
+  border-radius: 55%;
+  background-color: rgb(255, 119, 8);
+  color: rgb(255, 255, 255);
+  
+  border-style: none;
+}
+
+.btnS {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  color: aliceblue;
+  background-color: rgb(236, 99, 49);
+  border-style: none;
+  margin-left: 10px;
+}

@@ -1,0 +1,21 @@
+.navBox{
+  display: flex;
+}
+
+.linkHead {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  font-size: x-large;
+  color: rgb(255, 238, 0);
+}
+
+.userBlock{
+  margin-left: auto;
+}
+
+.activeLink {
+  composes: linkHead;
+  color: rgb(243, 12, 12);
+}
