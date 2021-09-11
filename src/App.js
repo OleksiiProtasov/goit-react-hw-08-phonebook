@@ -7,6 +7,7 @@ import { authOperations } from './redux/auth';
 import PrivateRoute from './Components/PritvatRoute';
 import PublicRoute from './Components/PublicRoute';
 
+const ContactsPage = lazy(() => import('./Pages/ContactsPage'));
 const HomeView = lazy(() => import('./Pages/HomePage'));
 const RegisterView = lazy(() => import('./Pages/RegisterPage'));
 const LoginView = lazy(() => import('./Pages/LogInPage'));
@@ -27,19 +28,19 @@ class App extends Component {
             <PublicRoute
               path="/register"
               restricted
-              redirectTo="/todos"
+              redirectTo="/contacts"
               component={RegisterView}
             />
             <PublicRoute
               path="/login"
               restricted
-              redirectTo="/todos"
+              redirectTo="/contacts"
               component={LoginView}
             />
             <PrivateRoute
-              path="/todos"
+              path="/contacts"
               redirectTo="/login"
-              // component={TodosView}
+              component={ContactsPage}
             />
           </Switch>
         </Suspense>

@@ -1,48 +1,20 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Container from '../components/Container';
+import React from 'react';
+// import Container from '../components/Container';
+import ContactList from "../Components/Phonebook/ContactList";
+import Filter from "../Components/Phonebook/Filter";
+import Form from "../Components/Phonebook/Form";
 
-import { todosOperations, todosSelectors } from '../redux/Contacts';
-
-// const barStyles = {
-//   display: 'flex',
-//   alignItems: 'flex-end',
-//   marginBottom: 20,
-// };
-
-class TodosView extends Component {
-  state = {
-    showModal: false,
-  };
-
-  componentDidMount() {
-    this.props.fetchTodos();
-  }
-
-  toggleModal = () => {
-    this.setState(({ showModal }) => ({
-      showModal: !showModal,
-    }));
-  };
-
-  render() {
-    const { showModal } = this.state;
-
-    return (
-      <Container>
+export default function ContactsPage() {
+  return (
+      <>
+        <div>
           <h1>Phonebook</h1>
-      
-      </Container>
-    );
-  }
+          <Form />
+          <h2>Contacts</h2>
+          <Filter />
+          <ContactList />
+        </div>
+      </>
+  );
 }
 
-const mapStateToProps = state => ({
-  isLoadingTodos: todosSelectors.getLoading(state),
-});
-
-const mapDispatchToProps = {
-  fetchTodos: todosOperations.fetchTodos,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TodosView);
