@@ -12,12 +12,6 @@ const token = {
   },
 };
 
-/*
- * POST @ /users/signup
- * body { name, email, password }
- *
- * После успешной регистрации добавляем токен в HTTP-заголовок
- */
 const register = credentials => async dispatch => {
   dispatch(authActions.registerRequest());
 
@@ -31,13 +25,6 @@ const register = credentials => async dispatch => {
   }
 };
 
-/*
- * POST @ /users/login
- * body:
- *    { email, password }
- *
- * После успешного логина добавляем токен в HTTP-заголовок
- */
 const logIn = credentials => async dispatch => {
   dispatch(authActions.loginRequest());
 
@@ -51,13 +38,6 @@ const logIn = credentials => async dispatch => {
   }
 };
 
-/*
- * POST @ /users/logout
- * headers:
- *    Authorization: Bearer token
- *
- * 1. После успешного логаута, удаляем токен из HTTP-заголовка
- */
 const logOut = () => async dispatch => {
   dispatch(authActions.logoutRequest());
 
@@ -71,15 +51,6 @@ const logOut = () => async dispatch => {
   }
 };
 
-/*
- * GET @ /users/current
- * headers:
- *    Authorization: Bearer token
- *
- * 1. Забираем токен из стейта через getState()
- * 2. Если токена нет, выходим не выполняя никаких операций
- * 3. Если токен есть, добавляет его в HTTP-заголовок и выполянем операцию
- */
 const getCurrentUser = () => async (dispatch, getState) => {
   const {
     auth: { token: persistedToken },
@@ -101,4 +72,5 @@ const getCurrentUser = () => async (dispatch, getState) => {
   }
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { register, logOut, logIn, getCurrentUser };

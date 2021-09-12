@@ -1,3 +1,10 @@
+import s from './styles.module.css'
+import page404 from '../img/page404.png'
+
 export default function NotFoundPage() {
-  return <h1> no found 404 </h1>;
+  return ( 
+        <div className={s.page404}>
+         <img src={page404} alt={page404}/>
+        </div>
+  );
 }

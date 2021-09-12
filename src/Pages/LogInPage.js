@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { authOperations } from '../redux/auth';
-
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import s from './styles.module.css'
 
 class LoginPage extends Component {
   state = {
@@ -35,17 +25,18 @@ class LoginPage extends Component {
     const { email, password } = this.state;
 
     return (
-      <div>
-        <h1>Страница логина</h1>
+      <div className={s.pagebox}>
+        <h1 className={s.title}>Log in</h1>
 
         <form
           onSubmit={this.handleSubmit}
-          style={styles.form}
+          className={s.TaskEditor}
           autoComplete="off"
         >
-          <label style={styles.label}>
-            Почта
+          <label className={s.TaskEditor_label}>
+            Email
             <input
+              className={s.TaskEditor_input}
               type="email"
               name="email"
               value={email}
@@ -53,9 +44,10 @@ class LoginPage extends Component {
             />
           </label>
 
-          <label style={styles.label}>
-            Пароль
+          <label className={s.TaskEditor_label}>
+            Password
             <input
+              className={s.TaskEditor_input}
               type="password"
               name="password"
               value={password}
@@ -63,7 +55,7 @@ class LoginPage extends Component {
             />
           </label>
 
-          <button type="submit">Войти</button>
+          <button type="submit" className={s.TaskEditor_button}>Log in</button>
         </form>
       </div>
     );

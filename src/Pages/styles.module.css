@@ -1,13 +1,17 @@
+
+
 .title{
-  margin-bottom: 20px;
+  margin: 15px 0;
+  font:italic ;
+  font-size: 40px;
+  
+  text-align: center;
 }
 
-.inputBox{
-  /* margin-bottom: 10px; */
-}
-
-.form{
-    margin-bottom:10px  
+.pagebox{
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .BoxInput{
@@ -17,15 +21,65 @@
 
 }
 
-.btn{
-  height: 30px;
-  width: 80px;
-  border-radius: 55%;
-  background-color: rgb(255, 119, 8);
-  color: rgb(255, 255, 255);
-  
-  border-style: none;
+.TaskEditor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  width: 400px;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  margin-bottom: 16px;
 }
+
+.TaskEditor_label {
+  margin-left: 15px;
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #171718;
+  cursor: pointer;
+}
+
+.TaskEditor_input {
+  color: #171718;
+  font: inherit;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #bdbdbd;
+  width: 350px;
+  outline: 0;
+}
+
+.TaskEditorinput:focus {
+  border: 1px solid #2b32b2;
+}
+
+.TaskEditor_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #3f51b5;
+  border: 0;
+  outline: 0;
+  padding: 8px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.05);
+  font: inherit;
+  text-transform: uppercase;
+  user-select: none;
+  transition: background-color 200ms ease-in-out;
+}
+
+.TaskEditor_button:hover {
+  box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.15);
+  background-color: #303f9f;
+}
+
 
 .btnS {
   border-radius: 50%;
@@ -35,4 +89,8 @@
   background-color: rgb(236, 99, 49);
   border-style: none;
   margin-left: 10px;
+}
+
+.page404{
+  align-items: center;
 }

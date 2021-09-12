@@ -1,5 +1,5 @@
 import React, { Component, Suspense, lazy } from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch , Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AppBar from './Components/AppBar';
 import Container from './Components/Container';
@@ -11,7 +11,7 @@ const ContactsPage = lazy(() => import('./Pages/ContactsPage'));
 const HomeView = lazy(() => import('./Pages/HomePage'));
 const RegisterView = lazy(() => import('./Pages/RegisterPage'));
 const LoginView = lazy(() => import('./Pages/LogInPage'));
-// const Contact = lazy(() => import('./Pages/ContactPage'));
+const NotFoundPage = lazy(() => import('./Pages/NotFoundPage'));
 
 class App extends Component {
   componentDidMount() {
@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <Container>
         <AppBar />
-        <Suspense fallback={<p>Загружаем...</p>}>
+        <Suspense fallback={<p>Loading...</p>}>
           <Switch>
             <PublicRoute exact path="/" component={HomeView} />
             <PublicRoute
@@ -42,6 +42,10 @@ class App extends Component {
               redirectTo="/login"
               component={ContactsPage}
             />
+            <Route>
+            {" "}
+            <NotFoundPage />{" "}
+            </Route>
           </Switch>
         </Suspense>
       </Container>
