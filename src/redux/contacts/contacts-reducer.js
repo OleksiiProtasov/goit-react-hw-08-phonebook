@@ -15,6 +15,11 @@ import {
 
 const items = createReducer([], {
   [fetchContactsSuccess]: (_, { payload }) => payload,
+  [addContactSuccess]: (_, { payload }) => {
+    console.log(payload)
+    return payload
+  },
+  [deleteContactSuccess]: (_, { payload }) => payload,
 });
 
 const loading = createReducer(false, {

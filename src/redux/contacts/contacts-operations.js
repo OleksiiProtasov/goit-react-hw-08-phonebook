@@ -29,25 +29,31 @@ export const fetchContacts = () => async (dispatch, getState) => {
   }
 };
 
-export const addContact = (contact) => async (dispatch) => {
+export const addContact = (contact) => async (dispatch, getState) => {
   dispatch(addContactRequest());
+
+  const { contacts } = getState();
+
+  console.log('lloo')
 
   try {
     await axios.post("/contacts", contact);
-    dispatch(fetchContacts());
-    dispatch(addContactSuccess());
+    dispatch(addContactSuccess(
+        [...contacts.items, contact]
+    ));
   } catch (error) {
     dispatch(addContactError(error));
   }
 };
 
-export const deleteContact = (id) => async (dispatch) => {
+export const deleteContact = (id) => async (dispatch, getState) => {
   dispatch(deleteContactRequest());
+
+  const { contacts } = getState();
 
   try {
     await axios.delete(`/contacts/${id}`);
-    dispatch(fetchContacts());
-    dispatch(deleteContactSuccess());
+    dispatch(deleteContactSuccess(contacts.items.filter(contact => contact.id !== id)));
   } catch (error) {
     dispatch(deleteContactError(error));
   }

@@ -1,19 +1,14 @@
 import styles from "./style.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import shortid from "shortid";
-import {addContact, fetchContacts} from "../../../redux/contacts/contacts-operations";
+import { addContact } from "../../../redux/contacts/contacts-operations";
 
 export default function Form() {
   const dispatch = useDispatch();
   const contacts = useSelector((state) => state.contacts.items);
-  const filter = useSelector((state) => state.contacts.filter);
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch, filter.name]);
 
   const handleChange = (e) => {
     const { name, value } = e.currentTarget;
