@@ -11,6 +11,9 @@ import {
   deleteContactSuccess,
   deleteContactError,
   changeFilter,
+  updateContactRequest,
+  updateContactSucces,
+  updateContactError,
 } from "./contacts-actions";
 
 const items = createReducer([], {
@@ -40,6 +43,12 @@ const removeContact = createReducer(false, {
   [deleteContactError]: () => false,
 });
 
+const updateContactList = createReducer(false, {
+  [updateContactRequest]: () => true,
+  [updateContactSucces]: () => false,
+  [updateContactError]: () => false,
+});
+
 const filter = createReducer(
   {},
   {
@@ -59,4 +68,5 @@ export default combineReducers({
   adding,
   error,
   removeContact,
+  updateContactList,
 });

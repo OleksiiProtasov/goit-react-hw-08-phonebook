@@ -9,6 +9,9 @@ import {
   deleteContactRequest,
   deleteContactSuccess,
   deleteContactError,
+  // updateContactRequest,
+  // updateContactSucces,
+  // updateContactError,
 } from "./contacts-actions";
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
@@ -18,10 +21,8 @@ export const fetchContacts = () => async (dispatch, getState) => {
 
   try {
     const { contacts } = getState();
-    const params = {};
-    if (contacts.filter.name) params["name_like"] = `^${contacts.filter.name}`;
 
-    const { data } = await axios.get(`/contacts`, { params });
+    const { data } = await axios.get(`/contacts`, contacts);
 
     dispatch(fetchContactsSuccess(data));
   } catch (error) {
@@ -29,12 +30,24 @@ export const fetchContacts = () => async (dispatch, getState) => {
   }
 };
 
+// export const updateContactList = (id) => async (dispatch, getState) => {
+//   dispatch(updateContactRequest());
+
+//   try {
+//     const { contacts } = getState();
+
+//     const { data } = await axios.patch(`/contacts/${id}`, contacts);
+
+//     dispatch(updateContactSucces(data));
+//   } catch (error) {
+//     dispatch(updateContactError(error));
+//   }
+// };
+
 export const addContact = (contact) => async (dispatch, getState) => {
   dispatch(addContactRequest());
 
   const { contacts } = getState();
-
-  console.log('lloo')
 
   try {
     await axios.post("/contacts", contact);

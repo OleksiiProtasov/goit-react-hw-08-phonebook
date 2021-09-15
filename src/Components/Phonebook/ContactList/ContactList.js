@@ -15,6 +15,7 @@ const ContactList = () => {
   const onRemoveContact = (id) => dispatch(deleteContact(id));
   const contacts = useSelector(selectContacts);
   const filter = useSelector((state) => state.contacts.filter);
+  const filteredContacts = contacts.filter(contact => !filter.name || contact.name.startsWith(filter.name))
 
   useEffect(() => {
     dispatch(fetchContacts(filter.name));
@@ -22,7 +23,7 @@ const ContactList = () => {
 
   return (
     <ul className={styles.TaskList}>
-      {contacts.map(({ name, id, number }) => (
+      {filteredContacts && filteredContacts.map(({ name, id, number }) => (
         <li className={styles.TaskList_item} key={id}>
           {name + " : " + number}
           {
